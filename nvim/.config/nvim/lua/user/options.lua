@@ -41,6 +41,13 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+-- Clipboard
+vim.cmd([[
+augroup WSLYank
+  autocmd! 
+   autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+  augroup END
+]]) 
 -- File format 
 vim.cmd([[
 augroup FileFormat
