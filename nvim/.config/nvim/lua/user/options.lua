@@ -43,11 +43,15 @@ end
 
 -- Clipboard
 vim.cmd([[
-augroup WSLYank
-  autocmd! 
-   autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+let s:clip = '/mnt/c/Windows/System32/clip.exe' 
+if executable(s:clip)
+  augroup WSLYank
+    autocmd! 
+    autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
   augroup END
+end
 ]]) 
+
 -- File format 
 vim.cmd([[
 augroup FileFormat
@@ -55,6 +59,7 @@ augroup FileFormat
   autocmd BufReadPre <buffer> :set ffs=unix
 augroup END
 ]]) 
+
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

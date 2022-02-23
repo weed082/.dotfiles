@@ -25,9 +25,6 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- disable search hilight
-keymap("n", "<C-n>", ":noh<CR>", opts)
-
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -46,9 +43,13 @@ keymap("n", "J", "mzJ`z", opts)
 
 -- Save, Quit tab, buffer
 keymap("n", "<leader>w", ":w<CR>", opts)
-keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>c", ":Bdelete!<CR>", opts)
-keymap("n", "<leader>h", ":nohlsearch<CR>", opts)
+
+-- No hilight
+keymap("n", "<leader>h", ":noh<CR>", opts)
+
+-- Select 
+keymap("n", "<C-a>", "ggVG", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
