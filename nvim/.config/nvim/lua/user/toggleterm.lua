@@ -29,7 +29,7 @@ toggleterm.setup({
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+  -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
@@ -38,33 +38,34 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-local Terminal = require("toggleterm.terminal").Terminal
+local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
-function _LAZYGIT_TOGGLE()
+function _lazygit_toggle()
 	lazygit:toggle()
 end
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 
 local node = Terminal:new({ cmd = "node", hidden = true })
 
-function _NODE_TOGGLE()
+function _node_toggle()
 	node:toggle()
 end
 
 local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
 
-function _NCDU_TOGGLE()
+function _ncdu_toggle()
 	ncdu:toggle()
 end
 
 local htop = Terminal:new({ cmd = "htop", hidden = true })
 
-function _HTOP_TOGGLE()
+function _htop_toggle()
 	htop:toggle()
 end
 
 local python = Terminal:new({ cmd = "python", hidden = true })
 
-function _PYTHON_TOGGLE()
+function _python_toggle()
 	python:toggle()
 end

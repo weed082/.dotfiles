@@ -58,9 +58,6 @@ keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -------------- Insert --------------
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-
 -- Undo break points
 keymap("i", ",", ",<c-g>u", opts)
 keymap("i", ".", ".<c-g>u", opts)
