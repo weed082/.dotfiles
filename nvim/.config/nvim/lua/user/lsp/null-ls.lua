@@ -14,7 +14,7 @@ null_ls.setup({
 	debug = true,
 	sources = {
     diagnostics.eslint,
-		formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" }}),
+    formatting.prettier,
 		formatting.stylua,
     completion.spell,
 	},
