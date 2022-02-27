@@ -36,14 +36,8 @@ font:
     family: "JetBrainsMono Nerd Font"
     style: Regular
   bold:
-    family: "JetBrains Mono"
+    family: "JetBrainsMono Nerd Font"
     style: Bold
-  italic:
-    family: "JetBrainsMono Nerd Font"
-    style: Italic
-  bold_italic:
-    family: "JetBrainsMono Nerd Font"
-    style: Bold Italic
   size: 12.0
   offset:
     x: 0
@@ -57,12 +51,12 @@ window:
   padding:
     x: 10
     y: 10
-  decorations: none
+  decorations: full
   opacity: 1.0
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
+  # Specifying '0' will disable scrolling
   history: 10000
 
   # Number of lines the viewport will move for every line scrolled when
