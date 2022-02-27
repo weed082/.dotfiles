@@ -3,33 +3,33 @@ shell:
   args:
     - "tmux attach || tmux"
 
-# Colors (One Dark)
+# tokyonight storm
 colors:
   primary:
-    background: "#2E3440"
-    foreground: "#D8DEE9"
+    background: "0x24283b"
+    foreground: "0xa9b1d6"
 
   # Normal colors
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#E5E9F0"
+    black: "0x32344a"
+    red: "0xf7768e"
+    green: "0x9ece6a"
+    yellow: "0xe0af68"
+    blue: "0x7aa2f7"
+    magenta: "0xad8ee6"
+    cyan: "0x449dab"
+    white: "0x9699a8"
 
   # Bright colors
   bright:
-    black: "#4C566A"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#8FBCBB"
-    white: "#ECEFF4"
+    black: "0x444b6a"
+    red: "0xff7a93"
+    green: "0xb9f27c"
+    yellow: "0xff9e64"
+    blue: "0x7da6ff"
+    magenta: "0xbb9af7"
+    cyan: "0x0db9d7"
+    white: "0xacb0d0"
 
 font:
   normal:
@@ -44,7 +44,7 @@ font:
   bold_italic:
     family: "JetBrainsMono Nerd Font"
     style: Bold Italic
-  size: 13.0
+  size: 12.0
   offset:
     x: 0
     y: 0
