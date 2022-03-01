@@ -1,7 +1,7 @@
 shell:
   program: wsl.exe -d Debian
-  # args:
-  #   - "tmux attach || tmux"
+  args:
+    - "tmux attach || tmux"
 
 # tokyonight storm
 colors:
