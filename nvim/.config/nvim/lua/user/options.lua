@@ -45,6 +45,6 @@ end
 vim.cmd([[
 augroup FileFormat
   autocmd! * <buffer>
-  autocmd BufReadPre <buffer> :set ff=unix
+  autocmd BufReadPre <buffer> :set ffs=unix
 augroup END
 ]]) 
