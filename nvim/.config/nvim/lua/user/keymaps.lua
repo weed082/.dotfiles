@@ -59,10 +59,10 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -------------- Insert --------------
 -- Undo break points
-keymap("i", ",", ",<c-g>u", opts)
-keymap("i", ".", ".<c-g>u", opts)
-keymap("i", "!", "!<c-g>u", opts)
-keymap("i", "?", "?<c-g>u", opts)
+keymap("i", ",", ",<C-g>u", opts)
+keymap("i", ".", ".<C-g>u", opts)
+keymap("i", "!", "!<C-g>u", opts)
+keymap("i", "?", "?<C-g>u", opts)
 
 -------------- Visual --------------
 -- Stay in indent mode

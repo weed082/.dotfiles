@@ -44,28 +44,6 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _lazygit_toggle()
 	lazygit:toggle()
 end
+
+-- short cut for git terminal
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-
-local node = Terminal:new({ cmd = "node", hidden = true })
-
-function _node_toggle()
-	node:toggle()
-end
-
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-
-function _ncdu_toggle()
-	ncdu:toggle()
-end
-
-local htop = Terminal:new({ cmd = "htop", hidden = true })
-
-function _htop_toggle()
-	htop:toggle()
-end
-
-local python = Terminal:new({ cmd = "python", hidden = true })
-
-function _python_toggle()
-	python:toggle()
-end
