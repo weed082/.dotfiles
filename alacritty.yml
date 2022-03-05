@@ -1,15 +1,11 @@
 shell:
-  program: wsl.exe -d Debian
-  args:
-    - "tmux attach || tmux"
+  program: wsl.exe -u weed -d Arch
 
-# tokyonight storm
+# gruvbox
 colors:
   # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
     background: "#282828"
-    # soft contrast: background = '#32302f'
     foreground: "#ebdbb2"
 
   # Normal colors
@@ -37,17 +33,18 @@ colors:
 font:
   normal:
     family: FiraCode Nerd Font
-    style: Regular
+    style: Medium
   bold:
     family: FiraCode Nerd Font
     style: Bold
   size: 12.0
   offset:
-    x: 0
-    y: 0
+    x: 1
+    y: 1
   glyph_offset:
     x: 0
     y: 0
+  builtin_box_drawing: false
 
 window:
   title: Alacritty
