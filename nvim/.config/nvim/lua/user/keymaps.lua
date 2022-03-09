@@ -31,7 +31,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<A-k>", "<Esc>:m .-3<CR>==", opts)
 
 -- Yanke
 keymap("n", "Y", "y$", opts)
@@ -50,12 +50,6 @@ keymap("n", "<leader>h", ":noh<CR>", opts)
 
 -- Select 
 keymap("n", "<C-a>", "ggVG", opts)
-
--- Telescope
-keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
-
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -------------- Insert --------------
 -- Undo break points
@@ -79,3 +73,9 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-------------- Plugins --------------
+-- Telescope
+keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
+
+-- NvimTree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
