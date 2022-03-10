@@ -33,6 +33,7 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
