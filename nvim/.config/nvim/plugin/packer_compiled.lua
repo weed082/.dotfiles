@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/weed/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["asyncrun.vim"] = {
+    loaded = true,
+    path = "/home/weed/.local/share/nvim/site/pack/packer/start/asyncrun.vim",
+    url = "https://github.com/skywind3000/asyncrun.vim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/weed/.local/share/nvim/site/pack/packer/start/bufferline.nvim",

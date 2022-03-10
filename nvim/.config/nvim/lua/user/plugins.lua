@@ -93,6 +93,9 @@ return packer.startup(function(use)
   -- Auto close tag 
   use "windwp/nvim-ts-autotag"
 
+  -- async cmd
+  use "skywind3000/asyncrun.vim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
