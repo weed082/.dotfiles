@@ -234,11 +234,6 @@ _G.packer_plugins = {
     path = "/home/weed/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/weed/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/home/weed/.local/share/nvim/site/pack/packer/start/vim-bbye",

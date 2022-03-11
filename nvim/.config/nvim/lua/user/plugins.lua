@@ -58,7 +58,6 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
   -- Colorschemes
-  use "folke/tokyonight.nvim"
   use "morhetz/gruvbox"
 
   -- cmp plugins
@@ -69,7 +68,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
 
-  -- snippets
+  -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
@@ -92,7 +91,7 @@ return packer.startup(function(use)
   -- Auto close tag 
   use "windwp/nvim-ts-autotag"
 
-  -- async cmd
+  -- Async cmd
   use "skywind3000/asyncrun.vim"
 
   -- Automatically set up your configuration after cloning packer.nvim
