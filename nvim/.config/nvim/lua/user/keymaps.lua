@@ -1,10 +1,7 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -23,9 +20,6 @@ keymap("n", "<C-h>", ":bp<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
-
--- Yanke
-keymap("n", "Y", "y$", opts)
 
 -- Keeping center 
 keymap("n", "n", "nzzzv", opts)
