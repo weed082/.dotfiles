@@ -35,16 +35,15 @@ local options = {
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
-vim.opt.shortmess:append "c"
-
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- File format 
-vim.cmd([[
-augroup FileFormat
-  autocmd! * <buffer>
-  autocmd BufReadPre <buffer> :set ffs=unix
-augroup END
-]]) 
+-- Init Opt
+-- vim.cmd([[
+-- augroup InitOpt
+--   autocmd! * <buffer>
+--   autocmd BufReadPre <buffer> :set ffs=unix
+--   autocmd BufReadPre <buffer> :set wrap
+-- augroup END
+-- ]]) 
