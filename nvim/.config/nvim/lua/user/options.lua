@@ -45,6 +45,5 @@ end
 -- augroup InitOpt
 --   autocmd! * <buffer>
 --   autocmd BufReadPre <buffer> :set ffs=unix
---   autocmd BufReadPre <buffer> :set wrap
 -- augroup END
--- ]]) 
+-- ]])
