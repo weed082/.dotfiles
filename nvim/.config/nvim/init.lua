@@ -1,7 +1,3 @@
-if (vim.g.vscode) then
-  require "user.keymaps"
-  return
-end
 require "user.keymaps"
 require "user.options"
 require "user.plugins"
