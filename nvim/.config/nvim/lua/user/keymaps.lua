@@ -38,10 +38,7 @@ keymap("n", "<C-a>", "ggVG", opts)
 
 -------------- Insert --------------
 -- Undo break points
-keymap("i", ",", ",<C-g>u", opts)
-keymap("i", ".", ".<C-g>u", opts)
-keymap("i", "!", "!<C-g>u", opts)
-keymap("i", "?", "?<C-g>u", opts)
+keymap("i", "{", "{<C-g>u", opts)
 
 -------------- Visual --------------
 -- Stay in indent mode

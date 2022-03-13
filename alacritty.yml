@@ -1,7 +1,7 @@
 shell:
   program: wsl.exe -u weed -d Arch
   args:
-    - tmux attach 
+    - tmux attach || tmux
 
 colors:
   # Default colors
