@@ -4,17 +4,14 @@ if not status_ok then
 end
 
 configs.setup {
-  autotag = {
-    enable = true,
+  autotag = { 
+    enable = true
   },
-  ensure_installed = "maintained", 
-  sync_install = false,
   ignore_install = { "" }, 
   autopairs = {
     enable = true,
   },
   highlight = {
-    enable = true,
     disable = { "" }, 
     additional_vim_regex_highlighting = true,
   },
