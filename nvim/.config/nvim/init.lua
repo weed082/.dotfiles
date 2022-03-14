@@ -1,7 +1,7 @@
+require "user.plugins"
 require "user.impatient"
 require "user.keymaps"
 require "user.options"
-require "user.plugins"
 require "user.colorscheme"
 require "user.lsp"
 require "user.cmp"
