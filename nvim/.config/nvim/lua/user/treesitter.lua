@@ -4,15 +4,18 @@ if not status_ok then
 end
 
 configs.setup {
-  autotag = { 
-    enable = true
+  autotag = {
+    enable = true,
   },
+  ensure_installed = "maintained", 
+  sync_install = false, 
   ignore_install = { "" }, 
   autopairs = {
     enable = true,
   },
   highlight = {
-    disable = { "" }, 
+    enable = true, -- false will disable the whole extension
+    disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
