@@ -60,6 +60,7 @@ return packer.startup(function(use)
   use "mhartington/oceanic-next"
   -- cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
