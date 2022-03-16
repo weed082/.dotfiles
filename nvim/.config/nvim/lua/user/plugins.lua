@@ -55,7 +55,6 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use 'lewis6991/impatient.nvim'
   -- Colorschemes
-  use "overcache/NeoSolarized"
   use "ishan9299/nvim-solarized-lua"
   -- cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
