@@ -38,11 +38,3 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
--- Init Opt
-vim.cmd([[
-augroup InitOpt
-  autocmd! * <buffer>
-  autocmd BufReadPre <buffer> :set ffs=unix
-augroup END
-]])
