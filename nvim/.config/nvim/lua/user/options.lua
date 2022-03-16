@@ -40,9 +40,9 @@ for k, v in pairs(options) do
 end
 
 -- Init Opt
--- vim.cmd([[
--- augroup InitOpt
---   autocmd! * <buffer>
---   autocmd BufReadPre <buffer> :set ffs=unix
--- augroup END
--- ]])
+vim.cmd([[
+augroup InitOpt
+  autocmd! * <buffer>
+  autocmd BufReadPre <buffer> :set ffs=unix
+augroup END
+]])
