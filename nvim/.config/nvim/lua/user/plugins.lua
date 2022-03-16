@@ -51,7 +51,6 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
-  use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use 'lewis6991/impatient.nvim'
   -- Colorschemes
@@ -68,6 +67,7 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "tami5/lspsaga.nvim"
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   -- Treesitter
