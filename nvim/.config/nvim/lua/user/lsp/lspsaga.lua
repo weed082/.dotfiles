@@ -21,5 +21,9 @@ keymap('n', ']d', ':Lspsaga diagnostic_jump_prev<CR>', opts)
 -- keymap('n', '<leader>g', "<cmd>lua require('lspsaga.floaterm').open_float_terminal('lazygit')<CR>", opts)
 -- keymap('t', '<leader>g', "<C-\\><C-n><cmd>lua require('lspsaga.floaterm').close_float_terminal('lazygit')<CR>", opts)
 
-lspsaga.init_lsp_saga()
-
+lspsaga.init_lsp_saga({
+  error_sign = '',
+  warn_sign = '',
+  hint_sign = '',
+  infor_sign = '',
+})
