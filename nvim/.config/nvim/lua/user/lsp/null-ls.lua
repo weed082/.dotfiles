@@ -5,15 +5,14 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-local completion = null_ls.builtins.completion
 
 null_ls.setup({
 	debug = true,
 	sources = {
     diagnostics.eslint,
     formatting.prettier,
-		formatting.stylua,
-    completion.spell,
+    formatting.google_java_format,
+    formatting.gofmt,
 	},
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

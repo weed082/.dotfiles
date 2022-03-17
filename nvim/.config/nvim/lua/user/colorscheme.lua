@@ -1,1 +1,1 @@
-vim.cmd [[ colorscheme solarized8 ]]
+vim.cmd [[ colorscheme gruvbox ]]

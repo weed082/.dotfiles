@@ -51,10 +51,11 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
+  use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use 'lewis6991/impatient.nvim'
   -- Colorschemes
-  use "lifepillar/vim-solarized8"
+  use "morhetz/gruvbox"
   -- cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "saadparwaiz1/cmp_luasnip" -- snippet completions

@@ -34,7 +34,7 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  local clients = { "tsserver", "html", "jsonls" }
+  local clients = { "tsserver", "gopls"}
   for _, target in ipairs(clients) do
     if client.name == target then
       client.resolved_capabilities.document_formatting = false
