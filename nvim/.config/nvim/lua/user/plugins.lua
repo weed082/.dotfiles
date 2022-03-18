@@ -56,7 +56,7 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
   use "lukas-reineke/indent-blankline.nvim"
   -- Colorschemes
-  use "morhetz/gruvbox"
+  use "sainnhe/everforest"
   -- cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
