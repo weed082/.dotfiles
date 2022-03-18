@@ -17,9 +17,4 @@ keymap('n', 'gl', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<
 keymap('n', '[d', ':Lspsaga diagnostic_jump_next<CR>', opts)
 keymap('n', ']d', ':Lspsaga diagnostic_jump_prev<CR>', opts)
 
-lspsaga.init_lsp_saga({
-  error_sign = '',
-  warn_sign = '',
-  hint_sign = '',
-  infor_sign = '',
-})
+lspsaga.init_lsp_saga()
