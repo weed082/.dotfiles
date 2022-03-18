@@ -35,15 +35,6 @@ vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = tru
 nvim_tree.setup {
   disable_netrw = true,
   update_cwd = true,
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
   update_focused_file = {
     enable = true,
     update_cwd = true,
