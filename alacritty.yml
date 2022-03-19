@@ -1,7 +1,5 @@
 shell:
   program: wsl.exe -u weed -d Arch
-  args:
-    - tmux attach || tmux
 
 colors:
   primary:
@@ -80,4 +78,6 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Return, mods: Alt, action: ToggleFullscreen }
+
+
 
