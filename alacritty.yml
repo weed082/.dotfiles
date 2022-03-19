@@ -3,7 +3,7 @@ shell:
 
 colors:
   primary:
-    background: '#2b3339'
+    background: '#2f383e'
     foreground: '#d3c6aa'
   normal:
     black:   '#4b565c'
