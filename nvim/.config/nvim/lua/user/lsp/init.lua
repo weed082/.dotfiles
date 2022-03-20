@@ -4,6 +4,6 @@ if not status_ok then
 end
 
 require "user.lsp.lsp-installer"
+require "user.lsp.lspsaga"
 require "user.lsp.handlers"
 require "user.lsp.null-ls"
-require "user.lsp.lspsaga"
