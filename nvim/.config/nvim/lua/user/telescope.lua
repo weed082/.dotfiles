@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
-vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope find_files<CR>", { noremap = true, silent = true })
 
 telescope.setup {
   defaults = {

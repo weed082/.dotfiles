@@ -10,7 +10,6 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 local function lsp_highlight_document(client)
@@ -28,7 +27,7 @@ local function lsp_highlight_document(client)
 end
 
 M.on_attach = function(client, bufnr)
-  local clients = { "tsserver", "gopls" }
+  local clients = { "tsserver", "gopls", "jdtls" }
   for _, target in ipairs(clients) do
     if client.name == target then
       client.resolved_capabilities.document_formatting = false
