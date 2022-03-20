@@ -56,17 +56,17 @@ return packer.startup(function(use)
   -- Colorschemes
   use "sainnhe/everforest"
   -- cmp 
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/nvim-cmp" 
+  use "saadparwaiz1/cmp_luasnip" 
   use "hrsh7th/cmp-nvim-lsp"
   -- Snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer" 
+  use "tamago324/nlsp-settings.nvim" 
+  use "jose-elias-alvarez/null-ls.nvim" 
   use "tami5/lspsaga.nvim"
   -- Telescope
   use "nvim-telescope/telescope.nvim"

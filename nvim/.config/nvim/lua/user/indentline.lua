@@ -43,6 +43,4 @@ vim.g.indent_blankline_context_patterns = {
 }
 vim.wo.colorcolumn = "99999"
 
-indent_blankline.setup({
-	show_current_context = true,
-})
+indent_blankline.setup({ show_current_context = true })
