@@ -3,26 +3,26 @@ shell:
 
 colors:
   primary:
-    background: '#2f383e'
-    foreground: '#d3c6aa'
+    background: "#2f383e"
+    foreground: "#d3c6aa"
   normal:
-    black:   '#4b565c'
-    red:     '#e67e80'
-    green:   '#a7c080'
-    yellow:  '#dbbc7f'
-    blue:    '#7fbbb3'
-    magenta: '#d699b6'
-    cyan:    '#83c092'
-    white:   '#d3c6aa'
+    black: "#4b565c"
+    red: "#e67e80"
+    green: "#a7c080"
+    yellow: "#dbbc7f"
+    blue: "#7fbbb3"
+    magenta: "#d699b6"
+    cyan: "#83c092"
+    white: "#d3c6aa"
   bright:
-    black:   '#4b565c'
-    red:     '#e67e80'
-    green:   '#a7c080'
-    yellow:  '#dbbc7f'
-    blue:    '#7fbbb3'
-    magenta: '#d699b6'
-    cyan:    '#83c092'
-    white:   '#d3c6aa'
+    black: "#4b565c"
+    red: "#e67e80"
+    green: "#a7c080"
+    yellow: "#dbbc7f"
+    blue: "#7fbbb3"
+    magenta: "#d699b6"
+    cyan: "#83c092"
+    white: "#d3c6aa"
 
 font:
   normal:
@@ -41,6 +41,16 @@ font:
   offset:
     x: 1
     y: 1
+  glyph_offset:
+    x: 0
+    y: 0
+
+mouse:
+  hide_when_typing: false
+
+cursor:
+  style: Block
+  unfocused_hollow: true
 
 window:
   title: Alacritty
@@ -56,7 +66,7 @@ scrolling:
 
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
-  save_to_clipboard: true
+  save_to_clipboard: false
 
 live_config_reload: true
 
@@ -71,3 +81,4 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Return, mods: Alt, action: ToggleFullscreen }
+
