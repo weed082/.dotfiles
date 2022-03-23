@@ -7,6 +7,7 @@ local options = {
   ignorecase = true,                      
   mouse = "a",                            
   pumheight = 10,                          
+  showmode = false,
   smartcase = true,                        
   smartindent = true,                      
   splitbelow = true,                       
