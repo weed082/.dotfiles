@@ -23,7 +23,7 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "J", "mzJ`z", opts)
 
 keymap("n", "<leader>w", ":w<CR>", opts)
-keymap("n", "<leader>c", ":Bd!<CR>", opts)
+keymap("n", "<leader>q", ":Bd!<CR>", opts)
 keymap("n", "<leader>h", ":noh<CR>", opts)
 
 -------------- Insert --------------
@@ -40,4 +40,3 @@ keymap("v", "p", '"_dP', opts)
 -------------- Visual Block ---------------
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
