@@ -12,6 +12,7 @@ null_ls.setup({
     formatting.prettier,
     formatting.google_java_format,
     formatting.gofmt,
+    formatting.black,
 	},
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then
