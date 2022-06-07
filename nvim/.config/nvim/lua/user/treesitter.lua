@@ -5,9 +5,9 @@ end
 
 configs.setup {
   autotag = { enable = true },
-  ensure_installed = "maintained", 
+  ensure_installed = "all", 
   sync_install = false, 
-  ignore_install = { "" }, 
+  ignore_install = { "phpdoc" }, 
   autopairs = { enable = true },
   highlight = {
     enable = true, 
