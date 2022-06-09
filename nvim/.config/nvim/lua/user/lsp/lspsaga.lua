@@ -1,6 +1,6 @@
 local status_ok, lspsaga = pcall(require, "lspsaga")
-if not status_ok then 
-  return 
+if not status_ok then
+  return
 end
 
 local opts = { noremap = true, silent = true }

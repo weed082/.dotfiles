@@ -9,7 +9,7 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
-nvim_tree.setup {
+nvim_tree.setup({
   disable_netrw = true,
   update_cwd = true,
   update_focused_file = {
@@ -23,8 +23,8 @@ nvim_tree.setup {
     mappings = {
       list = {
         { key = { "l", "<CR>", "o" }, action = "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
+        { key = "h", cb = tree_cb("close_node") },
+        { key = "v", cb = tree_cb("vsplit") },
       },
     },
   },
@@ -50,8 +50,8 @@ nvim_tree.setup {
           empty_open = "",
           symlink = "",
         },
-      }
-    }
-  }
-}
+      },
+    },
+  },
+})
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })

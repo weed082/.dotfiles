@@ -3,10 +3,10 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope find_files<CR>", { noremap = true, silent = true })
 
-telescope.setup {
+telescope.setup({
   defaults = {
     file_ignore_patterns = { ".git", "node_modules", "bin" },
     prompt_prefix = " ",
@@ -16,6 +16,6 @@ telescope.setup {
     find_files = {
       theme = "dropdown",
       hidden = true,
-    }
-  }
-}
+    },
+  },
+})
