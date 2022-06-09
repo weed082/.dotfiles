@@ -3,30 +3,15 @@ if not status then
   return
 end
 
--- Determine OS
 local home = os.getenv("HOME")
 if vim.fn.has("mac") == 1 then
-  WORKSPACE_PATH = home .. "/workspace/"
   CONFIG = "mac"
 elseif vim.fn.has("unix") == 1 then
-  WORKSPACE_PATH = home .. "/workspace/"
   CONFIG = "linux"
 else
   print("Unsupported system")
 end
 
-local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
-local root_dir = require("jdtls.setup").find_root(root_markers)
-if root_dir == "" then
-  return
-end
-
-local extendedClientCapabilities = jdtls.extendedClientCapabilities
-extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
-
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = WORKSPACE_PATH .. project_name
-print(workspace_dir)
 local config = {
   cmd = {
     "java",
@@ -47,10 +32,12 @@ local config = {
     "-configuration",
     home .. "/.local/share/nvim/lsp_servers/jdtls/config_" .. CONFIG,
     "-data",
-    workspace_dir,
+    home .. "/workspace" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
   },
   on_attach = require("user.lsp.handlers").on_attach,
   capabilities = require("user.lsp.handlers").capabilities,
-  root_dir = root_dir,
+  root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+  settings = { java = {} },
+  init_options = { bundles = {} },
 }
--- require("jdtls").start_or_attach(config)
+jdtls.start_or_attach(config)
