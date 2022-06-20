@@ -1,6 +1,3 @@
-shell:
-  program: wsl.exe -u weed -d Arch
-
 colors:
   primary:
     background: "#2f383e"
