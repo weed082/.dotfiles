@@ -1,4 +1,5 @@
 local M = {}
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
@@ -40,22 +41,21 @@ local function lsp_highlight_document(client)
 end
 
 M.on_attach = function(client, bufnr)
-  local clients = { "tsserver", "gopls", "jdtls" }
-  for _, target in ipairs(clients) do
-    if client.name == target then
-      client.resolved_capabilities.document_formatting = false
+  if client.name == "jdt.ls" then
+    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    require("jdtls.dap").setup_dap_main_class_configs()
+    M.capabilities.textDocument.completion.completionItem.snippetSupport = false
+    vim.lsp.codelens.refresh()
+  else
+    local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+    if not status_cmp_ok then
+      return
     end
+    M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+    M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-  return
-end
-
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M

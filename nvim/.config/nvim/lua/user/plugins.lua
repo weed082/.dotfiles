@@ -69,7 +69,9 @@ return packer.startup(function(use)
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("tami5/lspsaga.nvim")
-  use("mfussenegger/nvim-jdtls")
+  use("mfussenegger/nvim-dap")
+  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+  use("mfussenegger/nvim-jdtls") -- java
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   -- Treesitter
@@ -78,8 +80,6 @@ return packer.startup(function(use)
   use("lewis6991/gitsigns.nvim")
   -- Auto close tag
   use("windwp/nvim-ts-autotag")
-  -- Async cmd
-  use("skywind3000/asyncrun.vim")
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

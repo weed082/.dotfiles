@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 lsp_installer.on_server_ready(function(server)
+  if server.name == "jdtls" then
+    return
+  end
   local opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
