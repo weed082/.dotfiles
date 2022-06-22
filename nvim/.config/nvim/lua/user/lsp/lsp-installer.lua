@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 lsp_installer.on_server_ready(function(server)
+  -- using nvim-jdtls instead of default jdtls
   if server.name == "jdtls" then
     return
   end

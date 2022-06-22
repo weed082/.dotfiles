@@ -68,7 +68,6 @@ return packer.startup(function(use)
   use("williamboman/nvim-lsp-installer")
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
-  use("tami5/lspsaga.nvim")
   use("mfussenegger/nvim-dap")
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
   use("mfussenegger/nvim-jdtls") -- java
