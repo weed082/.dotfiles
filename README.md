@@ -1,10 +1,14 @@
 # Install Order
 
-1. Necessary lib
+- Java Setup
 
-- build-essential
-- curl
-- file
-- git
+  - Debug
+    git clone git@github.com:microsoft/java-debug.git
+    cd java-debug/
+    ./mvnw clean install
 
-2. Install base setup
+  - Test
+    git clone git@github.com:microsoft/vscode-java-test.git
+    cd vscode-java-test
+    npm install
+    npm run build-plugin
