@@ -1,3 +1,6 @@
+env:
+  TERM: alacritty
+
 colors:
   primary:
     background: "#2f383e"
@@ -34,7 +37,7 @@ font:
   bold_italic:
     family: Hack Nerd Font
     style: Bold Italic
-  size: 12.0
+  size: 14.0
   offset:
     x: 1
     y: 1

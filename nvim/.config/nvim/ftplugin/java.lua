@@ -17,7 +17,8 @@ local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 -- java debug plugin
-local bundles = { vim.fn.glob(home .. "/.config/nvim/java-debug/com.microsoft.java.debug.plugin-*.jar") }
+local bundles = { vim.fn.glob(home ..
+  "/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar") }
 vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
 
 local config = {
