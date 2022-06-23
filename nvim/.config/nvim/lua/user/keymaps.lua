@@ -46,11 +46,6 @@ keymap("n", "gl", vim.diagnostic.open_float, opts)
 keymap("n", "[d", vim.diagnostic.goto_prev, opts)
 keymap("n", "]d", vim.diagnostic.goto_next, opts)
 keymap("n", "gq", vim.diagnostic.setloclist, opts)
--- telescope
-keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>tl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
-keymap("n", "<leader>tp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>tb", ":Telescope buffers<CR>", opts)
 -- dap
 keymap("n", "<leader>dp", ":DapToggleBreakpoint<CR>", opts)
 keymap("n", "<leader>dc", ":DapContinue<CR>", opts)
@@ -60,6 +55,11 @@ keymap("n", "<leader>dO", ":DapStepOut<CR>", opts)
 keymap("n", "<leader>dr", ":DapToggleRepl<CR>", opts)
 keymap("n", "<leader>dx", ":DapTerminate<CR>", opts)
 keymap("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", opts)
+-- telescope
+keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>tl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
+keymap("n", "<leader>tp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>tb", ":Telescope buffers<CR>", opts)
 -- nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- toggle term
