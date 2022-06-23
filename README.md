@@ -1,20 +1,22 @@
 # Install Order
 
-- Java Setup
+- Neovim
 
-  - Debug(Java Debug)
+  - Java Setup
 
-    ```
-    git clone git@github.com:microsoft/java-debug.git
-    cd java-debug/
-    ./mvnw clean install
-    ```
+    - Debug(Java Debug)
 
-  - Test(Vscode Java Test)
+      ```
+      git clone git@github.com:microsoft/java-debug.git
+      cd java-debug/
+      ./mvnw clean install
+      ```
 
-    ```
-    git clone git@github.com:microsoft/vscode-java-test.git
-    cd vscode-java-test
-    npm install
-    npm run build-plugin
-    ```
+    - Test(Vscode Java Test)
+
+      ```
+      git clone git@github.com:microsoft/vscode-java-test.git
+      cd vscode-java-test
+      npm install
+      npm run build-plugin
+      ```
