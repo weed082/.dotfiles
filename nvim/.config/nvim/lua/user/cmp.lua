@@ -1,10 +1,12 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
+  print("cmp bad status")
   return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
+  print("luasnip bad status")
   return
 end
 
@@ -67,21 +69,7 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources({ { name = "cmp_git" } }, { { name = "buffer" } }),
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = { { name = "buffer" } },
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+  experimental = {
+    ghost_text = true,
+  },
 })

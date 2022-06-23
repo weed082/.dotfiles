@@ -4,6 +4,7 @@ local keymap = vim.keymap.set
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 -------------- Normal  --------------
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -24,14 +25,25 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":Bd<CR>", opts)
 keymap("n", "<leader>h", ":noh<CR>", opts)
+
 -------------- Insert --------------
 keymap("i", "{", "{<C-g>u", opts)
+
 -------------- Visual --------------
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==gv", opts)
 keymap("v", "p", '"_dP', opts)
+
 -------------- Visual Block ---------------
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-------------- Plugins ---------------
+vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>", opts)
+vim.keymap.set("n", "<leader>tl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
+vim.keymap.set("n", "<leader>tp", ":Telescope projects<CR>", opts)
+vim.keymap.set("n", "<leader>tb", ":Telescope buffers<CR>", opts)
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)

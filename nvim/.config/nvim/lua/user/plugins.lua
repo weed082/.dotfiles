@@ -70,7 +70,8 @@ return packer.startup(function(use)
   use("mfussenegger/nvim-jdtls") -- java
   -- Dap(dubug)
   use("mfussenegger/nvim-dap")
-  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+  use("rcarriga/nvim-dap-ui")
+  use("ravenxrz/DAPInstall.nvim")
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   -- Treesitter

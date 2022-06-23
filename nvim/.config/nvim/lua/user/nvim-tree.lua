@@ -1,10 +1,12 @@
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+  print("nvim tree bad status")
   return
 end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
+  print("nvim tree config bad status")
   return
 end
 
@@ -54,4 +56,3 @@ nvim_tree.setup({
     },
   },
 })
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
