@@ -10,9 +10,8 @@ if not dap_ui_status_ok then
   return
 end
 
-dapui.setup()
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-
+dapui.setup()
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
