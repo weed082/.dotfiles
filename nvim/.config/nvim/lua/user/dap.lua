@@ -10,14 +10,6 @@ if not dap_ui_status_ok then
   return
 end
 
-local status_ok, dap_install = pcall(require, "dap-install")
-if not status_ok then
-  print("dap install bad status")
-  return
-end
--- dap_install.setup({ installation_path = vim.fn.stdpath("data") .. "/dapinstall/" })
-dap_install.config("python", {})
-
 dapui.setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
@@ -32,31 +24,24 @@ dapui.setup({
   layouts = {
     sidebar = {
       elements = {
-        {
-          id = "scopes",
-          size = 0.25, -- Can be float or integer > 1
-        },
+        { id = "scopes", size = 0.25 },
         { id = "breakpoints", size = 0.25 },
-        -- { id = "stacks", size = 0.25 },
-        -- { id = "watches", size = 00.25 },
       },
       size = 40,
-      position = "right", -- Can be "left", "right", "top", "bottom"
+      position = "right",
     },
     tray = { elements = {} },
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
+    max_height = nil,
+    max_width = nil,
+    border = "rounded",
+    mappings = { close = { "q", "<Esc>" } },
   },
   windows = { indent = 1 },
 })
 
-vim.fn.sign_define("DapBreakpoint", { text = "B", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

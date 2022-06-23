@@ -41,9 +41,21 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -------------- Plugins ---------------
-vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<leader>tl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
-vim.keymap.set("n", "<leader>tp", ":Telescope projects<CR>", opts)
-vim.keymap.set("n", "<leader>tb", ":Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- telescope
+keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>tl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
+keymap("n", "<leader>tp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>tb", ":Telescope buffers<CR>", opts)
+-- dap
+keymap("n", "<leader>dp", ":DapToggleBreakpoint<CR>", opts)
+keymap("n", "<leader>dc", ":DapContinue<CR>", opts)
+keymap("n", "<leader>di", ":DapStepInto<CR>", opts)
+keymap("n", "<leader>do", ":DapStepOver<CR>", opts)
+keymap("n", "<leader>dO", ":DapStepOut<CR>", opts)
+keymap("n", "<leader>dr", ":DapToggleRepl<CR>", opts)
+keymap("n", "<leader>dx", ":DapTerminate<CR>", opts)
+keymap("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", opts)
+-- nvim tree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- toggle term
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)

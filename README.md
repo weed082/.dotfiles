@@ -2,7 +2,7 @@
 
 - Java Setup
 
-  - Debug
+  - Debug(Java Debug)
 
     ```
     git clone git@github.com:microsoft/java-debug.git
@@ -10,7 +10,7 @@
     ./mvnw clean install
     ```
 
-  - Test
+  - Test(Vscode Java Test)
 
     ```
     git clone git@github.com:microsoft/vscode-java-test.git
