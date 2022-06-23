@@ -46,10 +46,10 @@ return packer.startup(function(use)
   use("numToStr/Comment.nvim") -- Easily comment stuff
   use("kyazdani42/nvim-web-devicons")
   use("kyazdani42/nvim-tree.lua")
-  use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+  use("akinsho/bufferline.nvim")
   use("moll/vim-bbye")
   use("nvim-lualine/lualine.nvim")
-  use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
+  use("akinsho/toggleterm.nvim")
   use("ahmedkhalf/project.nvim")
   use("lewis6991/impatient.nvim")
   use("lukas-reineke/indent-blankline.nvim")
@@ -67,9 +67,10 @@ return packer.startup(function(use)
   use("williamboman/nvim-lsp-installer")
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
+  use("mfussenegger/nvim-jdtls") -- java
+  -- Dap(dubug)
   use("mfussenegger/nvim-dap")
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-  use("mfussenegger/nvim-jdtls") -- java
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   -- Treesitter
