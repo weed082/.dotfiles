@@ -51,7 +51,6 @@ local config = {
       configuration = { updateBuildConfiguration = "interactive" },
       maven = { downloadSources = true },
       implementationsCodeLens = { enabled = true },
-      referencesCodeLens = { enabled = true },
       references = { includeDecompiledSources = true },
       signatureHelp = { enabled = true },
       format = { enabled = false },
@@ -87,14 +86,13 @@ vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
+keymap("n", "<leader>df", "<Cmd>lua require('jdtls').test_class()<CR>", opts)
+keymap("n", "<leader>dn", "<Cmd>lua require('jdtls').test_nearest_method()<CR>", opts)
 keymap("n", "<leader>ji", "<Cmd>lua require('jdtls').organize_imports()<CR>", opts)
 keymap("n", "<leader>jm", "<Cmd>lua require('jdtls').extract_method()<CR>", opts)
 keymap("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
 keymap("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
-keymap("n", "<leader>df", "<Cmd>lua require('jdtls').test_class()<CR>", opts)
-keymap("n", "<leader>dn", "<Cmd>lua require('jdtls').test_nearest_method()<CR>", opts)
 
 keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method()<CR>", opts)
 keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant()<CR>", opts)
 keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant()<CR>", opts)
