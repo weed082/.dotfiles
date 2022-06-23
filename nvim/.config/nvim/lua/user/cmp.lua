@@ -59,12 +59,23 @@ cmp.setup({
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
+        nvim_lua = "[Lua]",
         luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
       })[entry.source.name]
       return vim_item
     end,
   },
-  sources = cmp.config.sources({ { name = "nvim_lsp" }, { name = "luasnip" } }, { { name = "buffer" } }),
+  sources = {
+    { name = "copilot" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "cmp_tabnine" },
+    { name = "path" },
+  },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
