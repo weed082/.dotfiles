@@ -54,7 +54,7 @@ return packer.startup(function(use)
   use("lewis6991/impatient.nvim")
   use("lukas-reineke/indent-blankline.nvim")
   -- Colorschemes
-  use("sainnhe/everforest")
+  use("folke/tokyonight.nvim")
   -- cmp
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-buffer")
