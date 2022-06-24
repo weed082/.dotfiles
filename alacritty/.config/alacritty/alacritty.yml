@@ -1,5 +1,9 @@
-env:
-  TERM: alacritty
+shell:
+  program: /opt/homebrew/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
 
 colors:
   primary:
