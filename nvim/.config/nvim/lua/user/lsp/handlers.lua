@@ -12,18 +12,20 @@ M.setup = function()
   end
 end
 
-M.lsp_highlight_document = function(client)
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]] ,
-      false
-    )
+local augroup = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+M.lsp_highlight_document = function(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = augroup })
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = vim.lsp.buf.document_highlight,
+      buffer = bufnr,
+      group = augroup,
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      callback = vim.lsp.buf.clear_references,
+      buffer = bufnr,
+      group = augroup,
+    })
   end
 end
 
@@ -31,7 +33,7 @@ M.on_attach = function(client, bufnr)
   require("user.keymaps").lsp_keymaps(bufnr)
   M.capabilities.textDocument.completion.completionItem.snippetSupport = true
   M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
-  M.lsp_highlight_document(client)
+  M.lsp_highlight_document(client, bufnr)
 end
 
 return M

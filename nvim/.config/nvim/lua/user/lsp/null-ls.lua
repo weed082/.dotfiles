@@ -5,6 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local augroup = vim.api.nvim_create_augroup("lsp_format", { clear = true })
 
 null_ls.setup({
   sources = {
@@ -15,14 +16,14 @@ null_ls.setup({
     formatting.black,
     formatting.stylua,
   },
-  on_attach = function(client)
+  on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
-      vim.cmd([[
-      augroup LspFormatting
-        autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-      augroup END
-      ]])
+      vim.api.nvim_clear_autocmds({ buffer = bufnr, group = augroup })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = vim.lsp.buf.formatting_seq_sync,
+      })
     end
   end,
 })

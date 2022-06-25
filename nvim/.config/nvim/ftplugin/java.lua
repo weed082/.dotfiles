@@ -52,7 +52,7 @@ local config = {
     require("jdtls.dap").setup_dap_main_class_configs()
     require("user.keymaps").lsp_keymaps(bufnr)
     lsp_handlers.capabilities.textDocument.completion.completionItem.snippetSupport = false
-    lsp_handlers.lsp_highlight_document(client)
+    lsp_handlers.lsp_highlight_document(client, bufnr)
   end,
   capabilities = require("user.lsp.handlers").capabilities,
   root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
