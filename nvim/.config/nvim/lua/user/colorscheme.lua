@@ -1,6 +1,5 @@
 local status, theme = pcall(require, "nightfox")
 if not status then
-  print("nightfox bad status")
   return
 end
 
