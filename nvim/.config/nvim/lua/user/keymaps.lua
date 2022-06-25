@@ -54,7 +54,7 @@ keymap("n", "<leader>do", ":DapStepOver<CR>", opts)
 keymap("n", "<leader>dO", ":DapStepOut<CR>", opts)
 keymap("n", "<leader>dr", ":DapToggleRepl<CR>", opts)
 keymap("n", "<leader>dx", ":DapTerminate<CR>", opts)
-keymap("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", opts)
+keymap("n", "<leader>du", require("dapui").toggle, opts)
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
@@ -63,4 +63,4 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 -- nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- toggle term
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>g", require("user.toggleterm").lazygit, opts)
