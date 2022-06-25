@@ -68,7 +68,6 @@ keymap("n", "gq", vim.diagnostic.setloclist, opts)
 
 M.lsp_keymaps = function(bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-  -- Mappings.
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
   keymap("n", "gd", vim.lsp.buf.definition, bufopts)

@@ -90,13 +90,13 @@ vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-keymap("n", "<leader>df", "<Cmd>lua require('jdtls').test_class()<CR>", opts)
-keymap("n", "<leader>dn", "<Cmd>lua require('jdtls').test_nearest_method()<CR>", opts)
-keymap("n", "<leader>ji", "<Cmd>lua require('jdtls').organize_imports()<CR>", opts)
-keymap("n", "<leader>jm", "<Cmd>lua require('jdtls').extract_method()<CR>", opts)
-keymap("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-keymap("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
+keymap("n", "<leader>df", require("jdtls").test_class, opts)
+keymap("n", "<leader>dn", require("jdtls").test_nearest_method, opts)
+keymap("n", "<leader>ji", require("jdtls").organize_imports, opts)
+keymap("n", "<leader>jm", require("jdtls").extract_method, opts)
+keymap("n", "<leader>jv", require("jdtls").extract_variable, opts)
+keymap("n", "<leader>jc", require("jdtls").extract_constant, opts)
 
-keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method()<CR>", opts)
-keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant()<CR>", opts)
+keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
