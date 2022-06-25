@@ -12,6 +12,8 @@ else
   print("Unsupported system")
 end
 
+-- lsp handlers
+local lsp_handlers = require("user.lsp.handlers")
 -- capabilities
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -47,14 +49,13 @@ local config = {
     home .. "/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"), -- project name
   },
   on_attach = function(client, bufnr)
-    local lsp_handlers = require("user.lsp.handlers")
-    require("jdtls").setup_dap({ hotcodereplace = "auto" })
-    require("jdtls.dap").setup_dap_main_class_configs()
-    require("user.keymaps").lsp_keymaps(bufnr)
     lsp_handlers.capabilities.textDocument.completion.completionItem.snippetSupport = false
     lsp_handlers.lsp_highlight_document(client, bufnr)
+    require("user.keymaps").lsp_keymaps(bufnr)
+    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    require("jdtls.dap").setup_dap_main_class_configs()
   end,
-  capabilities = require("user.lsp.handlers").capabilities,
+  capabilities = lsp_handlers.capabilities,
   root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
   settings = {
     java = {

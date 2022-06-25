@@ -30,10 +30,10 @@ M.lsp_highlight_document = function(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  require("user.keymaps").lsp_keymaps(bufnr)
-  M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-  M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
   M.lsp_highlight_document(client, bufnr)
+  M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+  require("user.keymaps").lsp_keymaps(bufnr)
+  require("cmp_nvim_lsp").update_capabilities(M.capabilities)
 end
 
 return M
