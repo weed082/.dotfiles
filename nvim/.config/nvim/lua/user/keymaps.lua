@@ -56,10 +56,10 @@ keymap("n", "<leader>dr", ":DapToggleRepl<CR>", opts)
 keymap("n", "<leader>dx", ":DapTerminate<CR>", opts)
 keymap("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", opts)
 -- telescope
-keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>tl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
-keymap("n", "<leader>tp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>tb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts) -- require "ripgrep"
+keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 -- nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- toggle term

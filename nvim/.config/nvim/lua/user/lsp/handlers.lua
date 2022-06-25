@@ -15,7 +15,6 @@ end
 local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   local keymap = vim.keymap.set
   keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
