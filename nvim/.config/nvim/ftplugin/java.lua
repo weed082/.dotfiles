@@ -46,7 +46,14 @@ local config = {
     "-data",
     home .. "/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"), -- project name
   },
-  on_attach = require("user.lsp.handlers").on_attach,
+  on_attach = function(client, bufnr)
+    local lsp_handlers = require("user.lsp.handlers")
+    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    require("jdtls.dap").setup_dap_main_class_configs()
+    require("user.keymaps").lsp_keymaps(bufnr)
+    lsp_handlers.capabilities.textDocument.completion.completionItem.snippetSupport = false
+    lsp_handlers.lsp_highlight_document(client)
+  end,
   capabilities = require("user.lsp.handlers").capabilities,
   root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
   settings = {
@@ -86,17 +93,15 @@ vim.cmd(
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 
--- remaps for jdtls
+-- java keymaps
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
-
 keymap("n", "<leader>df", jdtls.test_class, opts)
 keymap("n", "<leader>dn", jdtls.test_nearest_method, opts)
 keymap("n", "<leader>ji", jdtls.organize_imports, opts)
 keymap("n", "<leader>jm", jdtls.extract_method, opts)
 keymap("n", "<leader>jv", jdtls.extract_variable, opts)
 keymap("n", "<leader>jc", jdtls.extract_constant, opts)
-
 keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
 keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
 keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)

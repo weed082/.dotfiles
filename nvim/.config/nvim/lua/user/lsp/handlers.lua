@@ -12,7 +12,7 @@ M.setup = function()
   end
 end
 
-local function lsp_highlight_document(client)
+M.lsp_highlight_document = function(client)
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
@@ -28,16 +28,10 @@ local function lsp_highlight_document(client)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "jdt.ls" then
-    require("jdtls").setup_dap({ hotcodereplace = "auto" })
-    require("jdtls.dap").setup_dap_main_class_configs()
-    M.capabilities.textDocument.completion.completionItem.snippetSupport = false
-  else
-    M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-    M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
-  end
   require("user.keymaps").lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
+  M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+  M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
+  M.lsp_highlight_document(client)
 end
 
 return M
