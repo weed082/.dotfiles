@@ -91,3 +91,4 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Return, mods: Alt, action: ToggleFullscreen }
+  - { key: Space, mods: Control, chars: "\x00" }
