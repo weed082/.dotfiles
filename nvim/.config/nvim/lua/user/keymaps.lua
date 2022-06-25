@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
+local M = {}
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -41,11 +42,6 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -------------- Plugins ---------------
--- lsp
-keymap("n", "gl", vim.diagnostic.open_float, opts)
-keymap("n", "[d", vim.diagnostic.goto_prev, opts)
-keymap("n", "]d", vim.diagnostic.goto_next, opts)
-keymap("n", "gq", vim.diagnostic.setloclist, opts)
 -- dap
 keymap("n", "<leader>dp", ":DapToggleBreakpoint<CR>", opts)
 keymap("n", "<leader>dc", ":DapContinue<CR>", opts)
@@ -64,3 +60,30 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- toggle term
 keymap("n", "<leader>g", require("user.toggleterm").lazygit, opts)
+-- lsp
+keymap("n", "gl", vim.diagnostic.open_float, opts)
+keymap("n", "[d", vim.diagnostic.goto_prev, opts)
+keymap("n", "]d", vim.diagnostic.goto_next, opts)
+keymap("n", "gq", vim.diagnostic.setloclist, opts)
+
+M.lsp_keymaps = function(bufnr)
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  -- Mappings.
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
+  keymap("n", "gd", vim.lsp.buf.definition, bufopts)
+  keymap("n", "K", vim.lsp.buf.hover, bufopts)
+  keymap("n", "gi", vim.lsp.buf.implementation, bufopts)
+  keymap("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+  keymap("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+  keymap("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+  keymap("n", "<space>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  keymap("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+  keymap("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+  keymap("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+  keymap("n", "gr", vim.lsp.buf.references, bufopts)
+end
+
+return M
