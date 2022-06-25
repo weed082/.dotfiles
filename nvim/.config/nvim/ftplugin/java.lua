@@ -90,12 +90,12 @@ vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-keymap("n", "<leader>df", require("jdtls").test_class, opts)
-keymap("n", "<leader>dn", require("jdtls").test_nearest_method, opts)
-keymap("n", "<leader>ji", require("jdtls").organize_imports, opts)
-keymap("n", "<leader>jm", require("jdtls").extract_method, opts)
-keymap("n", "<leader>jv", require("jdtls").extract_variable, opts)
-keymap("n", "<leader>jc", require("jdtls").extract_constant, opts)
+keymap("n", "<leader>df", jdtls.test_class, opts)
+keymap("n", "<leader>dn", jdtls.test_nearest_method, opts)
+keymap("n", "<leader>ji", jdtls.organize_imports, opts)
+keymap("n", "<leader>jm", jdtls.extract_method, opts)
+keymap("n", "<leader>jv", jdtls.extract_variable, opts)
+keymap("n", "<leader>jc", jdtls.extract_constant, opts)
 
 keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
 keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
