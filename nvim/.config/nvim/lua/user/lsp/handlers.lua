@@ -12,7 +12,7 @@ M.setup = function()
   end
 end
 
-local augroup = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+local augroup = vim.api.nvim_create_augroup("lsp_document_highlight", {})
 M.lsp_highlight_document = function(client, bufnr)
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_clear_autocmds({ buffer = bufnr, group = augroup })
@@ -32,8 +32,8 @@ end
 M.on_attach = function(client, bufnr)
   M.lsp_highlight_document(client, bufnr)
   M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+  M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
   require("user.keymaps").lsp_keymaps(bufnr)
-  require("cmp_nvim_lsp").update_capabilities(M.capabilities)
 end
 
 return M
