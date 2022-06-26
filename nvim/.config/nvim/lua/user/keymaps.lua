@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
-local M = { bufopts = opts, keymap = keymap }
+local M = {}
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -66,8 +66,8 @@ keymap("n", "]d", vim.diagnostic.goto_next, opts)
 keymap("n", "gq", vim.diagnostic.setloclist, opts)
 
 M.lsp_keymaps = function(bufnr)
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
   keymap("n", "gd", vim.lsp.buf.definition, bufopts)
   keymap("n", "K", vim.lsp.buf.hover, bufopts)

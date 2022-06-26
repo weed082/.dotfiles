@@ -47,21 +47,21 @@ local config = {
     home .. "/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"), -- project name
   },
   on_attach = function(client, bufnr)
-    local keymaps = require("user.keymaps")
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    keymaps.lsp_keymaps(bufnr)
-    keymaps.keymap("n", "<leader>df", jdtls.test_class, bufopts)
-    keymaps.keymap("n", "<leader>dn", jdtls.test_nearest_method, bufopts)
-    keymaps.keymap("n", "<leader>ji", jdtls.organize_imports, bufopts)
-    keymaps.keymap("n", "<leader>jv", jdtls.extract_variable, bufopts)
-    keymaps.keymap("n", "<leader>jc", jdtls.extract_constant, bufopts)
-    keymaps.keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", bufopts)
-    keymaps.keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", bufopts)
-    keymaps.keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", bufopts)
+    local keymap = vim.keymap.set
+    keymap("n", "<leader>df", jdtls.test_class, bufopts)
+    keymap("n", "<leader>dn", jdtls.test_nearest_method, bufopts)
+    keymap("n", "<leader>ji", jdtls.organize_imports, bufopts)
+    keymap("n", "<leader>jv", jdtls.extract_variable, bufopts)
+    keymap("n", "<leader>jc", jdtls.extract_constant, bufopts)
+    keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", bufopts)
+    keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", bufopts)
+    keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", bufopts)
     lsp_handlers.capabilities.textDocument.completion.completionItem.snippetSupport = false
     lsp_handlers.lsp_highlight_document(client, bufnr)
     jdtls.setup_dap({ hotcodereplace = "auto" })
     require("jdtls.dap").setup_dap_main_class_configs()
+    require("user.keymaps").lsp_keymaps(bufnr)
   end,
   capabilities = lsp_handlers.capabilities,
   root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
@@ -101,3 +101,5 @@ command! -buffer JdtJol lua require('jdtls').jol()
 command! -buffer JdtBytecode lua require('jdtls').javap()
 command! -buffer JdtJshell lua require('jdtls').jshell()
 ]])
+
+-- java keymaps
