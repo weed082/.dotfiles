@@ -88,6 +88,6 @@ return packer.startup(function(use)
   use("windwp/nvim-ts-autotag")
 
   if PACKER_BOOTSTRAP then
-    require("packer").sync()
+    packer.sync()
   end
 end)
