@@ -2,7 +2,7 @@ local status, jdtls = pcall(require, "jdtls")
 if not status then
   return
 end
-
+local lsp_handlers = require("user.lsp.handlers")
 local home = os.getenv("HOME")
 if vim.fn.has("mac") == 1 then
   CONFIG = "mac"
@@ -12,8 +12,6 @@ else
   print("Unsupported system")
 end
 
--- lsp handlers
-local lsp_handlers = require("user.lsp.handlers")
 -- capabilities
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -51,9 +49,9 @@ local config = {
   on_attach = function(client, bufnr)
     lsp_handlers.capabilities.textDocument.completion.completionItem.snippetSupport = false
     lsp_handlers.lsp_highlight_document(client, bufnr)
-    require("user.keymaps").lsp_keymaps(bufnr)
-    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    jdtls.setup_dap({ hotcodereplace = "auto" })
     require("jdtls.dap").setup_dap_main_class_configs()
+    require("user.keymaps").lsp_keymaps(bufnr)
   end,
   capabilities = lsp_handlers.capabilities,
   root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
@@ -85,14 +83,14 @@ local config = {
 jdtls.start_or_attach(config)
 
 -- command
-vim.cmd(
-  "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
-)
-vim.cmd(
-  "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
-)
-vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
-vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
+vim.cmd([[
+command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
+command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)
+command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
+command! -buffer JdtJol lua require('jdtls').jol()
+command! -buffer JdtBytecode lua require('jdtls').javap()
+command! -buffer JdtJshell lua require('jdtls').jshell()
+]])
 
 -- java keymaps
 local opts = { noremap = true, silent = true }
@@ -100,7 +98,6 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>df", jdtls.test_class, opts)
 keymap("n", "<leader>dn", jdtls.test_nearest_method, opts)
 keymap("n", "<leader>ji", jdtls.organize_imports, opts)
-keymap("n", "<leader>jm", jdtls.extract_method, opts)
 keymap("n", "<leader>jv", jdtls.extract_variable, opts)
 keymap("n", "<leader>jc", jdtls.extract_constant, opts)
 keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)

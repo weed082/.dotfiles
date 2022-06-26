@@ -59,9 +59,10 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.kind = kind_icons[vim_item.kind]
       vim_item.menu = ({
+        copilot = "[AI]",
         nvim_lsp = "[LSP]",
-        nvim_lua = "[Lua]",
         luasnip = "[Snippet]",
+        nvim_lua = "[Lua]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -71,10 +72,9 @@ cmp.setup({
   sources = {
     { name = "copilot" },
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
     { name = "luasnip" },
+    { name = "nvim_lua" },
     { name = "buffer" },
-    { name = "cmp_tabnine" },
     { name = "path" },
   },
   confirm_opts = {
