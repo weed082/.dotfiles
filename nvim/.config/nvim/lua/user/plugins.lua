@@ -61,26 +61,14 @@ return packer.startup(function(use)
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-nvim-lua")
   use("saadparwaiz1/cmp_luasnip")
-  use({
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require("user.copilot")
-      end, 100)
-    end,
-  })
-  use({
-    "zbirenbaum/copilot-cmp",
-    module = "copilot_cmp",
-  })
-  -- Snippets
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lua")
+  -- snippets
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")
+  -- copilot
+  use("github/copilot.vim")
   -- LSP
   use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer")
