@@ -67,8 +67,6 @@ return packer.startup(function(use)
   -- snippets
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")
-  -- copilot
-  use("github/copilot.vim")
   -- LSP
   use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer")
