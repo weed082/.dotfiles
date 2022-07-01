@@ -6,6 +6,7 @@ end
 theme.setup({
   options = {
     dim_inactive = true,
+    transparent = true,
     styles = {
       comments = "italic",
       keywords = "bold",
