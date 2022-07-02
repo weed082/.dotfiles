@@ -16,9 +16,7 @@ nvim_tree.setup({
     enable = true,
     update_cwd = true,
   },
-  git = {
-    ignore = false,
-  },
+  git = { ignore = false },
   view = {
     mappings = {
       list = {
