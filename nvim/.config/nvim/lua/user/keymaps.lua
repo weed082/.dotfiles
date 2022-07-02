@@ -1,6 +1,6 @@
+local M = {}
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
-local M = {}
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
