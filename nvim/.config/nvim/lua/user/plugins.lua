@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("mfussenegger/nvim-jdtls") -- java
+  use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
   -- Dap(dubug)
   use("mfussenegger/nvim-dap")
   use("rcarriga/nvim-dap-ui")
