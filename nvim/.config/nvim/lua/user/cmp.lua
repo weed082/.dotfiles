@@ -39,7 +39,6 @@ local kind_icons = {
 }
 
 local sources = {
-  cmp_tabnine = "[AI]",
   nvim_lsp = "[LSP]",
   luasnip = "[Snippet]",
   nvim_lua = "[Lua]",
@@ -71,7 +70,6 @@ cmp.setup({
     end,
   },
   sources = {
-    { name = "cmp_tabnine" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "nvim_lua" },
