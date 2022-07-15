@@ -76,7 +76,6 @@ return packer.startup(function(use)
   -- Dap(dubug)
   use("mfussenegger/nvim-dap")
   use("rcarriga/nvim-dap-ui")
-  -- use("ravenxrz/DAPInstall.nvim")
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   -- Treesitter
